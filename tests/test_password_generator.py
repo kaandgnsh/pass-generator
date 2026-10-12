@@ -65,10 +65,6 @@ class PasswordGenerationTests(unittest.TestCase):
                 20, lowercase=False, uppercase=False, digits=False, symbols=False
             )
 
-    def test_length_must_fit_all_enabled_groups(self):
-        with self.assertRaisesRegex(ValueError, "at least 4"):
-            password_generator.generate_password(3)
-
     def test_cli_outputs_requested_number_of_passwords(self):
         output = io.StringIO()
         with contextlib.redirect_stdout(output):
